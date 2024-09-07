@@ -28,7 +28,7 @@ app.use('/', authRoutes);
 
 
 // 3. Server Creation
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8555;
 app.listen(PORT, function(){
     console.log("server is up on port " + PORT);
 })

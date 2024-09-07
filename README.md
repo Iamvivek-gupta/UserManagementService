@@ -1,5 +1,3 @@
-Sure! Here's a sample `README.md` file for your User Registration and Login Microservice using Node.js (Express.js) and MongoDB:
-
 ```markdown
 # User Registration and Login Microservice
 
@@ -27,15 +25,15 @@ This project is a User Registration and Login Microservice built with Node.js (E
 ### Prerequisites
 
 - Node.js installed
-- MongoDB instance (local or cloud)
+- MongoDB instance (cloud)
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/user-auth-service.git
-   cd user-auth-service
+   git clone https://github.com/Iamvivek-gupta/UserManagementService
+   cd UserManagementService
    ```
 
 2. Install dependencies:
@@ -47,9 +45,9 @@ This project is a User Registration and Login Microservice built with Node.js (E
 3. Create a `.env` file in the root directory and add the following environment variables:
 
    ```env
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   PORT=5000
+    PORT = 8555
+    JWT_SECRET = !@#$%^&*()__)(*&^%$#$%^&*()(*&^))
+    MONGO_URI = mongodb+srv://vivek:codex123@cluster0.a1rol.mongodb.net/user-management?retryWrites=true&w=majority
    ```
 
 4. Start the server:
@@ -62,16 +60,16 @@ This project is a User Registration and Login Microservice built with Node.js (E
 
 #### Register User
 
-- **URL:** `/api/auth/register`
+- **URL:** `/register`
 - **Method:** `POST`
 - **Description:** Registers a new user.
 - **Request Body:**
   ```json
   {
-    "email": "user@example.com",
-    "username": "username",
-    "password": "password"
-  }
+    "email": "vivek@gmail.com",
+    "username": "vivek",
+    "password_hash": "vivek1234"
+    }
   ```
 - **Response:**
   ```json
@@ -82,15 +80,15 @@ This project is a User Registration and Login Microservice built with Node.js (E
 
 #### Login User
 
-- **URL:** `/api/auth/login`
+- **URL:** `/login`
 - **Method:** `POST`
 - **Description:** Logs in a user and returns a JWT token.
 - **Request Body:**
   ```json
   {
-    "email": "user@example.com",
-    "password": "password"
-  }
+    "email": "vivek@gail.com",
+    "password_hash": "vivek1234"
+    }
   ```
 - **Response:**
   ```json
@@ -101,7 +99,7 @@ This project is a User Registration and Login Microservice built with Node.js (E
 
 #### Get User Profile
 
-- **URL:** `/api/auth/profile`
+- **URL:** `/profile`
 - **Method:** `GET`
 - **Description:** Returns user details. Accessible only to authenticated users.
 - **Headers:**
@@ -113,10 +111,10 @@ This project is a User Registration and Login Microservice built with Node.js (E
 - **Response:**
   ```json
   {
-    "_id": "user_id",
-    "email": "user@example.com",
-    "username": "username"
-  }
+    "_id": "66dbf9f58c53610d9be244d2",
+    "email": "vivek@gail.com",
+    "username": "vivek"
+    }
   ```
 
 ### Hosting
