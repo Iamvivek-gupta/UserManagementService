@@ -56,6 +56,11 @@ This project is a User Registration and Login Microservice built with Node.js (E
    npm start
    ```
 
+ - The server will start at http://localhost:8555/ by default.
+
+
+  
+
 ### API Endpoints
 
 #### Register User
@@ -119,5 +124,5 @@ This project is a User Registration and Login Microservice built with Node.js (E
 
 ### Hosting
 
-You can host this microservice on platforms like AWS, Firebase, Vercel, or Supabase. If hosting is not possible, you can run the project locally by following the steps mentioned above.
+I have deployed these microservices on render.
 
