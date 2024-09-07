@@ -122,7 +122,7 @@ This project is a User Registration and Login Microservice built with Node.js (E
 - **Headers:**
   ```json
   {
-    "x-auth-token": "your_jwt_token"
+    "x-auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpdmVrQGdhaWwuY29tIiwiaWF0IjoxNzI1Njk0MDExLCJleHAiOjE3MjYyOTg4MTF9.73j7r-nEwiRmCE8uB32reAu4aT-lAjHQ0nHCDI9Gf08"
   }
   ```
 - **Response:**
