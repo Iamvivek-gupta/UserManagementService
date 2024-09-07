@@ -1,10 +1,9 @@
-// controllers/authController.js
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { generateToken } = require('../utils/authUtils');
 
 exports.register = async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, username, password_hash } = req.body;
 
   try {
     let user = await User.findOne({ email });
@@ -15,58 +14,42 @@ exports.register = async (req, res) => {
     user = new User({
       email,
       username,
-      password: await bcrypt.hash(password, 10),
+      password_hash: await bcrypt.hash(password_hash, 10),
     });
 
     await user.save();
     res.status(201).json({ msg: 'User registered successfully' });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send(err.message);
   }
 };
 
 exports.login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password_hash } = req.body;
 
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: 'Invalid credentials' });
+      return res.status(400).json({ msg: 'User does not exist' });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password_hash, user.password_hash);
     if (!isMatch) {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
-
-    const payload = {
-      user: {
-        id: user.id,
-      },
-    };
-
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
+    
+    const token = generateToken(user);
+    res.json({token})
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send(err.message);
   }
 };
 
 exports.getProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findOne({email: req.user}).select('-password_hash');
     res.json(user);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send(err.message);
   }
 };

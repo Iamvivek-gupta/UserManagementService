@@ -3,10 +3,7 @@ const ObjectId = require('mongoose').ObjectId;
 
 
 
-const UserSchema = new mongoose.Schema({
-  user_id: {
-    type: ObjectId,
-},  
+const UserSchema = new mongoose.Schema({ 
   email: {
     type: String,
     required: true,
@@ -20,6 +17,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('User', UserSchema);
