@@ -58,6 +58,18 @@ This project is a User Registration and Login Microservice built with Node.js (E
 
  - The server will start at http://localhost:8555/ by default.
 
+### Note
+- Before starting the server, make sure to set the appropriate values for the environment variables in the .env file.
+
+- In case of any errors, check the logs in the terminal for more information. 
+
+
+### Production URL
+
+```bash
+   https://usermanagementservice.onrender.com
+   ```
+
 
   
 
