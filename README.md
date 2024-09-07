@@ -136,5 +136,5 @@ This project is a User Registration and Login Microservice built with Node.js (E
 
 ### Hosting
 
-I have deployed these microservices on render.
+I have deployed these microservices on Render.
 
